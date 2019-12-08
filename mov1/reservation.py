@@ -1,8 +1,10 @@
 import os
+import sys
 import time
 import json
-from booking_seats_mov1  import *
-        
+from booking_seats  import *
+sys.path.append('.')
+from cost_movies import *
 def print_board():
     print()
     print("X = Booked")
@@ -34,6 +36,7 @@ def print_board():
     print(" ","-------------------")
     print(" ","      SCREEN       ")
     print(" ","-------------------")
+nos = 0
 while True:
     os.system("cls")
     print_board()
@@ -65,8 +68,11 @@ while True:
             print()
             print("Already Booked")
             time.sleep(1)
-    choice2 = input("Do you want to book another seat or move on with the transaction? (y/n) : ").lower()
+    
+    nos += 1
+    print(nos)
+    choice2 = input("Do you want to book another seat or move on with the transaction? (Y/n) : ").lower()
     if choice2 == 'n':
-        os.system("UNBOUND")
+        os.system("Transaction\\tran.py")
         break
     

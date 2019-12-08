@@ -1,20 +1,19 @@
 #Movie List
-
 import os
 import time
 from cost_movies import *
 movie_list = {"Robot 2.0","Badlapur","Hera Pheri","Housefull 4","Avengers : End Game"}
 while True:
     print('''
-    \t\t\t\t SELECT MOVIE
+    \t\t SELECT MOVIE
+ 
+    1. Robot 2.0                  Rs {}
+    2. Badlapur                   Rs {}
+    3. Hera Pheri                 Rs {}
+    4. Housefull 4                Rs {}
+    5. Avengers : End Game        Rs {}
 
-    1. Robot 2.0
-    2. Badlapur
-    3. Hera Pheri
-    4. Housefull 4
-    5. Avengers : End Game
-
-    ''')
+    '''.format(cost[0],cost[1],cost[2],cost[3],cost[4]))
     try:
         user = int(input("Enter your choice : "))
     except:
