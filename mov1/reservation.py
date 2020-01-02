@@ -59,8 +59,8 @@ while True:
         seat_choice = int(seats[choice])    
         if board[seat_choice] == " ":
             board[seat_choice] = "X"
-        
-            with open("booking_seats.py", "w") as sh:
+            nos+=1
+            with open("mov1//booking_seats.py", "w") as sh:
                 sh.write("board = ")
                 data = json.dump(board, sh)
             
@@ -68,11 +68,19 @@ while True:
             print()
             print("Already Booked")
             time.sleep(1)
-    
-    nos += 1
-    print(nos)
+    if nos == 0:
+        continue
+    print()
+    print()
+    print("Number of seats selected :",nos)
+    print("Grand total : Rs",cost[0]*nos)
     choice2 = input("Do you want to book another seat or move on with the transaction? (Y/n) : ").lower()
     if choice2 == 'n':
-        os.system("Transaction\\tran.py")
+        nos2 = {}
+        nos2[choice]=nos
+        with open("mov1//current_booked.py", "w") as oa:
+            oa.write("nos2 = ")
+            data = json.dump(nos2, oa)
+        os.system("transaction\\tran.py")
         break
     
