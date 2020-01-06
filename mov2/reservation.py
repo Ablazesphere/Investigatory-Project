@@ -1,8 +1,10 @@
 import os
+import sys
 import time
 import json
-from movies import *
-        
+from booking_seats  import *
+sys.path.append('.')
+from cost_movies import *
 def print_board():
     print()
     print("X = Booked")
@@ -34,8 +36,10 @@ def print_board():
     print(" ","-------------------")
     print(" ","      SCREEN       ")
     print(" ","-------------------")
+nos = 0
 while True:
     os.system("cls")
+    print_board()
     seats = {'A1':1,'B1':2,'C1':3,'D1':4,'E1':5,
              'A2':6,'B2':7,'C2':8,'D2':9,'E2':10,
              'A3':11,'B3':12,'C3':13,'D3':14,'E3':15,
@@ -55,8 +59,8 @@ while True:
         seat_choice = int(seats[choice])    
         if board[seat_choice] == " ":
             board[seat_choice] = "X"
-        
-            with open("booking_seats.py", "w") as sh:
+            nos+=1
+            with open("mov2//booking_seats.py", "w") as sh:
                 sh.write("board = ")
                 data = json.dump(board, sh)
             
@@ -64,8 +68,19 @@ while True:
             print()
             print("Already Booked")
             time.sleep(1)
-    choice2 = input("Do you want to book another seat or move on with the transaction? (y/n) : ").lower()
+    if nos == 0:
+        continue
+    print()
+    print()
+    print("Number of seats selected :",nos)
+    print("Grand total : Rs",cost[0]*nos)
+    choice2 = input("Do you want to book another seat or move on with the transaction? (Y/n) : ").lower()
     if choice2 == 'n':
-        os.system("UNBOUND")
+        nos2 = {}
+        nos2[choice]=nos
+        with open("mov2//current_booked.py", "w") as oa:
+            oa.write("nos2 = ")
+            data = json.dump(nos2, oa)
+        os.system("transaction\\tran.py")
         break
     
