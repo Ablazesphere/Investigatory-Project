@@ -4,6 +4,7 @@ import time
 from cost_movies import *
 movie_list = {"Robot 2.0","Badlapur","Hera Pheri","Housefull 4","Avengers : End Game"}
 while True:
+    os.system("cls")
     print('''
     \t\t SELECT MOVIE
  

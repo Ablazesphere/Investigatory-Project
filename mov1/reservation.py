@@ -2,6 +2,8 @@ import os
 import sys
 import time
 import json
+import pickle
+from current_booked import *
 from booking_seats  import *
 sys.path.append('.')
 from cost_movies import *
@@ -36,7 +38,8 @@ def print_board():
     print(" ","-------------------")
     print(" ","      SCREEN       ")
     print(" ","-------------------")
-nos = 0
+nos=0
+temp = {}
 while True:
     os.system("cls")
     print_board()
@@ -59,28 +62,25 @@ while True:
         seat_choice = int(seats[choice])    
         if board[seat_choice] == " ":
             board[seat_choice] = "X"
-            nos+=1
             with open("mov1//booking_seats.py", "w") as sh:
                 sh.write("board = ")
                 data = json.dump(board, sh)
-            
+                nos+=1
         else:
             print()
             print("Already Booked")
             time.sleep(1)
-    if nos == 0:
-        continue
     print()
     print()
     print("Number of seats selected :",nos)
     print("Grand total : Rs",cost[0]*nos)
-    choice2 = input("Do you want to book another seat or move on with the transaction? (Y/n) : ").lower()
+    temp[choice]=nos
+    choice2 = input("Do you want to book another seat or move on with the transaction? (Y/n) : ").lower()    
     if choice2 == 'n':
-        nos2 = {}
-        nos2[choice]=nos
+        nos2.update(temp)
         with open("mov1//current_booked.py", "w") as oa:
             oa.write("nos2 = ")
-            data = json.dump(nos2, oa)
-        os.system("transaction\\tran.py")
+            json.dump(nos2, oa)
+        os.system("mov1\\trans.py")
         break
     
