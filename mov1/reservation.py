@@ -2,7 +2,6 @@ import os
 import sys
 import time
 import json
-import pickle
 from current_booked import *
 from booking_seats  import *
 sys.path.append('.')
