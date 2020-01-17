@@ -1,9 +1,5 @@
 import os,time
 from current_booked import *
-print("Transaction")
-print()
-print("1.DEBIT CARD")
-print("2.CANCEL")
 def dc():
     print()
     CARDNO=input("ENTER YOUR 16 DIGIT CARD NUMBER: ")
@@ -35,6 +31,11 @@ def dc():
         dc()    
 while True:
     os.system("cls")
+    print("Transaction")
+    print()
+    print("1.DEBIT CARD")
+    print("2.CANCEL")
+    print()
     choice=int(input("ENTER YOUR CHOICE :"))
     if choice==1:
         dc()

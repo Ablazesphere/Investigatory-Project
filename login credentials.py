@@ -79,7 +79,7 @@ regno()
 mycon=sqltor.connect(host='localhost',user='root',passwd='',database='movie')
 cursor=mycon.cursor()
 while True:
-    choice=input("HELLO!!!! ARE YOU A REGISTERED USER (y/n):")
+    choice=input("HELLO!!!! ARE YOU A REGISTERED USER (y/n):").lower()
     if choice=='y':
         login()
         os.system("movies.py")
