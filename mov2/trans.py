@@ -1,4 +1,5 @@
 import os,time
+from datetime import date
 from current_booked import *
 def dc():
     print()
@@ -20,7 +21,7 @@ def dc():
             print("|SEAT NO.:  {}                |".format(seats[9:]))
             print("|TIME: 9:00 AM                            |")
             print("|SCREEN:PVR                               |")
-            print("|DATE:                                    |")
+            print("|DATE:   {}                               |".format(date.today()))
             print("|        THANK YOU!!!! FOR USING          |")
             print("|                                         |")
             print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
