@@ -21,9 +21,9 @@ def dc():
             print("|SEAT NO.:  {}                |".format(seats[9:]))
             print("|TIME: 9:00 AM                            |")
             print("|SCREEN:PVR                               |")
-            print("|DATE:   {}                               |".format(date.today()))
+            print("|DATE:   {}              |".format(date.today()))
             print("|        THANK YOU!!!! FOR USING          |")
-            print("|                                         |")
+            print("|            BOOK MY SHOW                 |")
             print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
             time.sleep(5)
     else:

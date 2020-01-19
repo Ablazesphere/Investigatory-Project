@@ -41,8 +41,8 @@ def register():
             file.flush()
             file.close()
             time.sleep(2)
+            os.system('cls')
             hello(regno)
-            os.system("cls")
     except:
         print("oops!!!! something went wrong")
         time.sleep(3)
@@ -67,12 +67,15 @@ def check(user,password):
             login()
 def login():
     user=input("ENTER YOUR USERNAME:")
-    password=input("password:")
+    password=input("Password:")
+    os.system('cls')
     check(user,password)
 def hello(regno):
     cursor.execute("SELECT CUSTOMER_NAME FROM CUSTOMER_DETAILS WHERE REG_NO={}".format(regno))
     data=cursor.fetchall()
     print("HELLO",data[0][0].upper(),"ITS MOVIE TIME")
+    time.sleep(3)
+    os.system('movies.py')
 database()
 table()
 regno()
@@ -82,11 +85,10 @@ while True:
     choice=input("HELLO!!!! ARE YOU A REGISTERED USER (y/n):").lower()
     if choice=='y':
         login()
-        os.system("movies.py")
         break
     elif choice=='n':
         register()
-        continue
+        break
     else:
         print("ERROR!!!! TRY AGAIN")
         os.system("cls")
