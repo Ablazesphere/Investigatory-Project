@@ -75,7 +75,7 @@ while True:
     print("Number of seats selected :",nos)
     print("Grand total : Rs",cost[0]*nos)
     temp[choice]=nos
-    choice2 = input("Do you want to book another seat or move on with the transaction? (Y/n) : ").lower()    
+    choice2 = input("Do you want to book another seat? (Y/n) : ").lower()    
     if choice2 == 'n':
         nos2.update(temp)
         with open("mov4//current_booked.py", "w") as oa:

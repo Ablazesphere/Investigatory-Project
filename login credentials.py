@@ -12,6 +12,8 @@ def database():
     cursor=mycon.cursor()
     if mycon.is_connected():
         print("CONNECTION ESTABLISHED")
+        print()
+        print()
     else:
         print("UNABLE TO CONNECT WITH SQL SERVER")
     cursor.execute("CREATE DATABASE IF NOT EXISTS MOVIE ")
@@ -83,6 +85,7 @@ mycon=sqltor.connect(host='localhost',user='root',passwd='',database='movie')
 cursor=mycon.cursor()
 while True:
     choice=input("HELLO!!!! ARE YOU A REGISTERED USER (y/n):").lower()
+    print()
     if choice=='y':
         login()
         break
